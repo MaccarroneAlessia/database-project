@@ -1,0 +1,8 @@
+DROP USER IF EXISTS "admin"@"localhost";
+CREATE USER IF NOT EXISTS "admin"@"localhost" IDENTIFIED BY "admin";
+
+DROP DATABASE IF EXISTS beb;
+CREATE DATABASE IF NOT EXISTS beb;
+
+GRANT ALL PRIVILEGES ON *.* TO "admin"@"localhost";
+FLUSH PRIVILEGES;

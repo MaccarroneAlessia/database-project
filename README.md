@@ -1,8 +1,6 @@
 # database-project
 
 ### Project report :
-https://1drv.ms/w/s!Aq6Bk9QQ2wtBjmmMcRLRVH0iqWUM?e=7asKIX
-and the corresponding presentation:
 https://docs.google.com/presentation/d/1cMVPjF0AZqicDH3ZbJ3HvmyrWora0he0QCBW3J7WFGU/edit?usp=sharing
 
 ## What's in it
@@ -11,7 +9,26 @@ It begins by scanning all the various steps from reality analysis to physical de
 
 ## How to run the project 
 ### with mysql
-'''bash
+```bash
+cd database-project/src/sql\ operations/
+sudo mysql -u root < tables.sql
+sudo mysql -u root < operations.sql
+sudo mysql -u root < trigger.sql
+sudo mysql -u root < table_population.sql
+
+sudo mysql -u admin -padmin
+
+cd /etc/phpmyadmin
+php -S localhost:7777
+```
 
 ### Visualizing the web interface
-'''bash
+```bash
+cd database-project/src/sql\ operations/
+sudo mysql -u root < mysql_setup.sql
+
+cd database-project/src/webManagement/
+php artisan migrate
+php artisan route:list --exception-vendor
+php artisan serve
+```
